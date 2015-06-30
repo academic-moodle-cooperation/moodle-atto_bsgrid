@@ -58,7 +58,7 @@ var TEMPLATE = '' +
       '<form class="atto_form">' +
       '<div id="{{elementid}}_{{innerform}}" class="mdl-align">';
 for(var t in templates) {
-  TEMPLATE += '<a class="bsgridtemplateicon" alt="' + templates[t].title +  '" title="' + templates[t].title + '" data-template="'+ t + '" class="{{CSS.INPUTSUBMIT}}"><img src="'
+  TEMPLATE += '<a class="bsgridtemplateicon {{CSS.INPUTSUBMIT}}" alt="' + templates[t].title +  '" title="' + templates[t].title + '" data-template="'+ t + '"><img src="'
     + M.util.image_url("ed/" + templates[t].icon,"atto_bsgrid") + '"/></a>';
 };
 TEMPLATE +=   '</div>' +
