@@ -2,3 +2,5 @@
 .editor_atto_content .span3,
 .editor_atto_content .span4,
 .editor_atto_content .span6 { border: 2px #ddd dashed; }
+.bsgridtemplateicon img { width: 60px; height: 60px; }
+.bsgridtemplateicon { margin: 1em 2%; display: inline-block; }
