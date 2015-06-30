@@ -1,0 +1,10 @@
+{
+    "name": "moodle-atto_bsgrid-button",
+    "builds": {
+        "moodle-atto_bsgrid-button": {
+            "jsfiles": [
+                "button.js"
+            ]
+        }
+    }
+}
