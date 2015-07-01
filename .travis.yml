@@ -5,9 +5,9 @@ php:
 
 env:
  global:
-  - MOODLE_BRANCH=MOODLE_27_STABLE
+  - MOODLE_BRANCH=MOODLE_28_STABLE
  matrix:
-  - DB=pgsql
+#  - DB=pgsql
   - DB=mysqli
 
 before_install:
@@ -29,7 +29,7 @@ before_script:
  - composer self-update
  - composer install
 
- - mv ../moodle-mod_hsuforum mod/hsuforum
+ - mv ../moodle-atto_bsgrid lib/editor/atto/plugins/bsgrid
 
 # slice off the end of config so we can insert more settings before they are used
  - head -n -8 config-dist.php > config.php
@@ -71,5 +71,5 @@ before_script:
  - php admin/tool/behat/cli/init.php
 
 script:
- - vendor/bin/phpunit -c mod/hsuforum 
+# - vendor/bin/phpunit -c mod/atto_bsgrid
  - vendor/bin/behat --config $HOME/bht_moodledata/behat/behat.yml --tags @atto_bsgrid
