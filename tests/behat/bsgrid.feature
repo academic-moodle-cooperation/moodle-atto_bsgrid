@@ -3,13 +3,10 @@ Feature: Atto bsgrid
   To layout content in Atto, I need to insert bootstrap grids
 
   @javascript
-  Background:
-    The following config values are set as admin:
-      | toolbar  | "bsgrid = bsgrid"  | editor_atto  |
-
-  @javascript
   Scenario: Create a 2 column grid
     Given I log in as "admin"
+    And the following config values are set as admin:
+      | toolbar  | "bsgrid = bsgrid" | editor_atto |
     And I am on homepage
     And I expand "My profile" node
     And I expand "Blogs" node
