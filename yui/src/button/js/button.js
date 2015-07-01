@@ -32,16 +32,11 @@
  */
 
 var COMPONENTNAME = 'atto_bsgrid';
-var FLAVORCONTROL = 'bsgrid_flavor';
 var LOGNAME = 'atto_bsgrid';
 
 var CSS = {
-  INPUTSUBMIT: 'atto_bsgrid_selectcolumns',
-  FLAVORCONTROL: 'flavorcontrol'
-},
-    SELECTORS = {
-      FLAVORCONTROL: '.flavorcontrol'
-    };
+  INPUTSUBMIT: 'atto_bsgrid_selectcolumns'
+};
 
 var col2_template = '<div class="container-fluid"><div class="row-fluid"><div class="span6">Column 1</div><div class="span6">Column 2</div></div></div>';
 var col3_template = '<div class="container-fluid"><div class="row-fluid"><div class="span4">Column 1</div><div class="span4">Column 2</div><div class="span4">Column 3</div></div></div>';
@@ -53,17 +48,15 @@ var templates = { col2: { template: col2_template, icon: "col2", title: "2 Colum
 		  col4: { template: col4_template, icon: "col4", title: "4 Columns" },
 		  col6: { template: col6_template, icon: "col6", title: "6 Columns" }
 		};
-
-var TEMPLATE = '' +
-      '<form class="atto_form">' +
-      '<div id="{{elementid}}_{{innerform}}" class="mdl-align">';
-for(var t in templates) {
-  TEMPLATE += '<a class="bsgridtemplateicon {{CSS.INPUTSUBMIT}}" alt="' + templates[t].title +  '" title="' + templates[t].title + '" data-template="'+ t + '"><img src="'
-    + M.util.image_url("ed/" + templates[t].icon,"atto_bsgrid") + '"/></a>';
-};
-TEMPLATE +=   '</div>' +
-  '</form>';
-
+function contains(a, obj) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+var TEMPLATE="";
 Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
 
   /**
@@ -79,6 +72,18 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
 
     var twoicons = ['iconone'];
 
+    TEMPLATE = '' +
+      '<form class="atto_form">' +
+      '<div id="{{elementid}}_{{innerform}}" class="mdl-align">';
+for(var t in templates) {
+  if(contains(this.get('enabled_templates'),t)) { 
+    TEMPLATE += '<a class="bsgridtemplateicon {{CSS.INPUTSUBMIT}}" alt="' + templates[t].title +  '" title="' + templates[t].title + '" data-template="'+ t + '"><img src="'
+      + M.util.image_url("ed/" + templates[t].icon,"atto_bsgrid") + '"/></a>';
+  }
+};
+TEMPLATE +=   '</div>' +
+  '</form>';
+
     Y.Array.each(twoicons, function(theicon) {
       // Add the bsgrid icon/buttons
       this.addButton({
@@ -90,17 +95,6 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
       });
     }, this);
 
-  },
-
-  /**
-   * Get the id of the flavor control where we store the ice cream flavor
-   *
-   * @method _getFlavorControlName
-   * @return {String} the name/id of the flavor form field
-   * @private
-   */
-  _getFlavorControlName: function(){
-    return(this.get('host').get('elementid') + '_' + FLAVORCONTROL);
   },
 
   /**
@@ -151,9 +145,7 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
         content = Y.Node.create(template({
           elementid: this.get('host').get('elementid'),
           CSS: CSS,
-          FLAVORCONTROL: FLAVORCONTROL,
           component: COMPONENTNAME,
-          defaultflavor: this.get('defaultflavor'),
           clickedicon: clickedicon
         }));
 
@@ -169,19 +161,10 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
    */
   _doInsert : function(e){
     e.preventDefault();
-    console.log(e);
     this.getDialogue({
       focusAfterHide: null
     }).hide();
-
-    // var flavorcontrol = this._form.one(SELECTORS.FLAVORCONTROL);
-
-    // If no file is there to insert, don't do it.
-    // if (!flavorcontrol.get('value')){
-    //     Y.log('No flavor control or value could be found.', 'warn', LOGNAME);
-    //     return;
-    // }
-
+    console.log(this.get('enabled_templates'));
     this.editor.focus();
     var templateName = e.currentTarget.getAttribute('data-template');
     this.get('host').insertContentAtFocusPoint(templates[templateName].template);
@@ -189,16 +172,8 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
 
   }
 }, { ATTRS: {
-  disabled: {
-    value: false
-  },
-
-  usercontextid: {
-    value: null
-  },
-
-  defaultflavor: {
-    value: ''
+  enabled_templates: {
+    values: ['col2','col3','col4','col6']
   }
 }
    });

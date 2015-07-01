@@ -34,7 +34,6 @@ function atto_bsgrid_strings_for_js() {
 
     $PAGE->requires->strings_for_js(array('insert',
                                           'cancel',
-                                          'enterflavor',
                                           'dialogtitle'),
                                     'atto_bsgrid');
 }
@@ -44,29 +43,15 @@ function atto_bsgrid_strings_for_js() {
  * @return array of additional params to pass to javascript init function for this module.
  */
 function atto_bsgrid_params_for_js($elementid, $options, $fpoptions) {
-	global $USER, $COURSE;
-	//coursecontext
-	$coursecontext=context_course::instance($COURSE->id);	
-	
-	//usercontextid
-	$usercontextid=context_user::instance($USER->id)->id;
-	$disabled=false;
-	
-	//config our array of data
-	$params = array();
-	$params['usercontextid'] = $usercontextid;
+    // Get config
+    $config = get_config('atto_bsgrid', 'enabled_templates');
 
-		//If they don't have permission don't show it
-		if(!has_capability('atto/bsgrid:visible', $coursecontext) ){
-			$disabled=true;
-		 }
-        
-        //add our disabled param
-        $params['disabled'] = $disabled;
-        
-        //add our default flavor
-        $params['defaultflavor'] = get_config('atto_bsgrid','defaultflavor');
+    // Explode settings csv values
+    $attributes = explode(',', $config);
 
-    return $params;
+    // Return object
+    return array(
+        'enabled_templates' => $attributes
+    );
 }
 

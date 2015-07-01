@@ -30,6 +30,15 @@ $ADMIN->add('editoratto', new admin_category('atto_bsgrid', new lang_string('plu
 $settings = new admin_settingpage('atto_bsgrid_settings', new lang_string('settings', 'atto_bsgrid'));
 if ($ADMIN->fulltree) {
 	// An option setting
-	$settings->add(new admin_setting_configtext('atto_bsgrid/defaultflavor', 
-		get_string('defaultflavor', 'atto_bsgrid'), '', 'vanilla', PARAM_TEXT));
+	$settings->add(new admin_setting_configmulticheckbox(
+        'atto_bsgrid/enabled_templates', 
+        get_string('enabled_templates', 'atto_bsgrid'),
+        get_string('enabled_templates_desc', 'atto_bsgrid'),
+        array(),
+        array(
+            'col2' => "2 Columns",
+            'col3' => "3 Columns",
+            'col4' => "4 Columns",
+            'col6' => "6 Columns"
+        )));
 }
