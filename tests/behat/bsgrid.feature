@@ -5,7 +5,7 @@ Feature: Atto bsgrid
   @javascript
   Background:
     The following config values are set as admin:
-      | toolbar  | bsgrid = bsgrid  | editor_atto  |
+      | toolbar  | "bsgrid = bsgrid"  | editor_atto  |
 
   @javascript
   Scenario: Create a 2 column grid
