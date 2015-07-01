@@ -1,0 +1,75 @@
+language: php
+
+php:
+ - 5.5
+
+env:
+ global:
+  - MOODLE_BRANCH=MOODLE_27_STABLE
+ matrix:
+  - DB=pgsql
+  - DB=mysqli
+
+before_install:
+# set up headless browser for behat tests early as it can take a while to start up
+# - curl -o selenium.jar http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar
+# - xvfb-run java -jar selenium.jar > /dev/null 2> /dev/null &
+ - phantomjs --webdriver=4444 > /dev/null 2> /dev/null &
+ 
+ - sudo apt-get update -qq
+
+before_script:
+ - git clone --depth=1 --branch $MOODLE_BRANCH git://github.com/moodle/moodle ../moodle
+ - cd ../moodle
+
+ - php -S localhost:8000 > /dev/null 2> /dev/null &
+
+# this prevents github blocking you if it sees too much download traffic
+ - composer config -g github-oauth.github.com $GITHUB_API_TOKEN
+ - composer self-update
+ - composer install
+
+ - mv ../moodle-mod_hsuforum mod/hsuforum
+
+# slice off the end of config so we can insert more settings before they are used
+ - head -n -8 config-dist.php > config.php
+ - tail -n 8 config-dist.php > config-end.php
+
+# convert $HOME into a PHP variable, to avoid ugly escaping
+ - echo '$HOME = "'$HOME'";' >> config.php
+
+ - echo '$CFG->dbuser = "postgres";' >> config.php
+ - echo '$CFG->dbpass = "";' >> config.php
+
+ - echo '$CFG->wwwroot = "http://localhost/moodle";' >> config.php
+ - echo '$CFG->dataroot = "$HOME/moodledata";' >> config.php
+
+ - echo '$CFG->phpunit_prefix = "phpu_";' >> config.php
+ - echo '$CFG->phpunit_dataroot = "$HOME/phpu_moodledata";' >> config.php
+
+ - echo '$CFG->behat_prefix = "bht_";' >> config.php
+ - echo '$CFG->behat_wwwroot = "http://localhost:8000";' >> config.php
+ - echo '$CFG->behat_dataroot = "$HOME/bht_moodledata";' >> config.php
+
+ - if [[ "$DB" == "pgsql" ]]; then psql -c 'create database moodle;' -U postgres; fi
+
+ - if [[ "$DB" == "mysqli" ]]; then mysql -e 'create database moodle default character set UTF8 collate UTF8_bin;'; fi
+ - if [[ "$DB" == "mysqli" ]]; then echo '$CFG->dbtype = "mysqli";' >> config.php; fi
+ - if [[ "$DB" == "mysqli" ]]; then echo '$CFG->dbuser = "root";' >> config.php; fi
+
+# re-attach end of config file
+ - cat config-end.php >> config.php
+
+ - mkdir -m777 $HOME/moodledata
+
+# COMMENTED OUT AS NOT RELEVANT TO ATTO TESTS
+# intialize phpunit
+# - php admin/tool/phpunit/cli/init.php
+# - php admin/tool/phpunit/cli/util.php --buildcomponentconfigs
+
+# intialize behat
+ - php admin/tool/behat/cli/init.php
+
+script:
+ - vendor/bin/phpunit -c mod/hsuforum 
+ - vendor/bin/behat --config $HOME/bht_moodledata/behat/behat.yml --tags @atto_bsgrid
