@@ -23,7 +23,7 @@
  */
 
 $string['createbsgrid'] = 'Create bsgrid';
-$string['pluginname'] = 'bsgrid (Atto)';
+$string['pluginname'] = 'Bootstrap Grid';
 $string['settings'] = 'bsgrid (Atto)';
 $string['browse'] = 'Browse';
 $string['visible'] = 'Visible';
