@@ -2,17 +2,20 @@
 Feature: Atto bsgrid
   To layout content in Atto, I need to insert bootstrap grids
 
+  Background: Ensure grid button in toolbar
+    Given the following config values are set as admin:
+      | toolbar  | bootstrap = bsgrid | editor_atto  |
+
   @javascript
   Scenario: Create a 2 column grid
     Given I log in as "admin"
     And the following config values are set as admin:
       | toolbar  | "bsgrid = bsgrid" | editor_atto |
     And I am on homepage
-    And I expand "My profile" node
-    And I expand "Blogs" node
-    And I follow "Add a new entry"
-    And I click on "bsgrid" "button"
-    When I follow "2 Columns"
+    And I follow "Site home"
+    And I click on "Add a new course" "button"
+    And I click on "Bootstrap Grid" "button"
+    When I click on ".moodle-dialogue-focused a[data-template=col2]" "css_element"
     Then ".container-fluid .row-fluid" "css_element" should be visible
 
   # @javascript
