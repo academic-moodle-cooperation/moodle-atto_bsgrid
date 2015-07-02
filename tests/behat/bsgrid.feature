@@ -4,19 +4,23 @@ Feature: Atto bsgrid
 
   Background: Ensure grid button in toolbar
     Given the following config values are set as admin:
-      | toolbar  | bootstrap = bsgrid | editor_atto  |
+      | toolbar  | "bootstrap = bsgrid" | editor_atto  |
+      | enabled_templates | col2,col3,col4,col6 | atto_bsgrid |
 
   @javascript
   Scenario: Create a 2 column grid
     Given I log in as "admin"
     And the following config values are set as admin:
-      | toolbar  | "bsgrid = bsgrid" | editor_atto |
+      | toolbar  | bsgrid = bsgrid | editor_atto |
     And I am on homepage
-    And I follow "Site home"
     And I click on "Add a new course" "button"
     And I click on "Bootstrap Grid" "button"
-    When I click on ".moodle-dialogue-focused a[data-template=col2]" "css_element"
-    Then ".container-fluid .row-fluid" "css_element" should be visible
+    When I click on "a[title='2 Columns']" "css_element"
+    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    And ".editor_atto_content .span2" "css_element" should not exist
+    And ".editor_atto_content .span3" "css_element" should not exist
+    And ".editor_atto_content .span4" "css_element" should not exist
+    And ".editor_atto_content .span6" "css_element" should be visible
 
   # @javascript
   # Scenario: Edit a table
