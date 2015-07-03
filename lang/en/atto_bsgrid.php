@@ -23,7 +23,7 @@
  */
 
 $string['createbsgrid'] = 'Create bsgrid';
-$string['pluginname'] = 'bsgrid (Atto)';
+$string['pluginname'] = 'Bootstrap Grid';
 $string['settings'] = 'bsgrid (Atto)';
 $string['browse'] = 'Browse';
 $string['visible'] = 'Visible';
@@ -31,6 +31,6 @@ $string['nothingtoinsert'] = 'Nothing to insert!';
 $string['dialogtitle'] = 'Enter Preferences';
 $string['insert'] = 'Insert';
 $string['cancel'] = 'Cancel';
-$string['enterflavor'] = 'Enter Ice Cream Flavor';
-$string['defaultflavor'] = 'Default Ice Cream Flavor';
+$string['enabled_templates'] = 'Enabled templates:';
+$string['enabled_templates_desc'] = 'Which templates to show.';
 $string['bsgrid:visible'] = 'Visible';
