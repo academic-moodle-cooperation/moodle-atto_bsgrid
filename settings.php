@@ -34,7 +34,12 @@ if ($ADMIN->fulltree) {
         'atto_bsgrid/enabled_templates', 
         get_string('enabled_templates', 'atto_bsgrid'),
         get_string('enabled_templates_desc', 'atto_bsgrid'),
-        array(),
+        array(
+            'col2' => 'checked',
+            'col3' => 'checked',
+            'col4' => 'checked',
+            'col6' => 'checked'
+        ),
         array(
             'col2' => "2 Columns",
             'col3' => "3 Columns",
