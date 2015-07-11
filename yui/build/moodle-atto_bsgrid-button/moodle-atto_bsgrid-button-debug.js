@@ -92,7 +92,7 @@ for(var t in templates) {
   }
 };
 
-TEMPLATE +=   '</div>' + '</form>';
+TEMPLATE += '</div>' + '</form>';
 
     Y.Array.each(twoicons, function(theicon) {
       // Add the bsgrid icon/buttons
