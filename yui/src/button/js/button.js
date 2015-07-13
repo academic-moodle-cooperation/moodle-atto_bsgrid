@@ -15,7 +15,9 @@
 
 /*
  * @package    atto_bsgrid
- * @copyright  COPYRIGHTINFO
+ * @copyright  2015 Peter Feigl <peter.feigl@nexoid.at>,
+ *             Guy Thomas <gthomas@moodlerooms.com>,
+ *             Stuart Lamour <slamour@moodlerooms.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

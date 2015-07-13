@@ -16,7 +16,7 @@
 # Tests for Bootstrap grid.
 #
 # @package    atto_bsgrid
-# @copyright  (c) Peter Feigl, Guy Thomas, Miriam Kunst
+# @copyright  2015 Guy Thomas <gthomas@moodlerooms.com>
 # @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
 
 
