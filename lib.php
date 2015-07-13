@@ -44,6 +44,8 @@ function atto_bsgrid_strings_for_js() {
             'column6',
             'col2',
             'col3',
+            'col1x3',
+            'col3x1',
             'col4',
             'col6',
             'dialogtitle'

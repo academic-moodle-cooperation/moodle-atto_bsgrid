@@ -39,25 +39,72 @@ var LOGNAME = 'atto_bsgrid';
 var CSS = {
   INPUTSUBMIT: 'atto_bsgrid_selectcolumns'
 };
-// TODO - add bs three classes
-// TODO - add spans to col text
-// TODO - add 3rd
-// TODO - add 3rd reverse
-var col2_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-6 span6"><p>Column 1</p></div><div class="col-md-6 span6"><p>Column 2</p></div></div></div>';
-var col3_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-4 span4"><p>Column 1</p></div><div class="col-md-4 span4"><p>Column 2</p></div><div class="col-md-4 span4"><p>Column 3</p></div></div></div>';
-var col1x3_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-4 span4"><p>Column 1</p></div><div class="col-md-8 span8"><p>Column 2</p></div></div></div>';
-var col3x1_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-8 span8"><p>Column 1</p></div><div class="col-md-4 span4"><p>Column 2</p></div></div></div>';
-var col4_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-3 span3"><p>Column 1</p></div><div class="col-md-3 span3"><p>Column 2</p></div><div class="col-md-3 span3"><p>Column 3</p></div><div class="col-md-3 span3"><p>Column 4</p></div></div></div>';
-var col6_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-2 span2"><p>Column 1</p></div><div class="col-md-2 span2"><p>Column 2</p></div><div class="col-md-2 span2"><p>Column 3</p></div><div class="col-md-2 span2"><p>Column 4</p></div><div class="col-md-2 span2"><p>Column 5</p></div><div class="col-md-2 span2"><p>Column 6</p></div></div></div>';
 
-var templates = { col2: { template: col2_template, icon: "col2", title: "50% Columns" },
-    col3: { template: col3_template, icon: "col3", title: "33% Columns" },
-    col1x3: { template: col1x3_template, icon: "col1x3", title: "25%, 75% Columns" },
-    col3x1: { template: col3x1_template, icon: "col3x1", title: "75%, 25% Columns" },
-    col4: { template: col4_template, icon: "col4", title: "25% Columns" },
-    col6: { template: col6_template, icon: "col6", title: "16% Columns" }
-};
+// Note - the paragraph tags inside the BS grid divs is important - without it, deleting the contents
+// of a column will delete the actuall column!
 
+var col2_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span6"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="span6"><p>'+M.util.get_string('column2')+'</p></div>' +
+        '</div>' +
+    '</div>';
+var col3_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span4"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="span4"><p>'+M.util.get_string('column2')+'</p></div>' +
+            '<div class="span4"><p>'+M.util.get_string('column3')+'</p></div>' +
+        '</div>' +
+    '</div>';
+
+var col1x3_template =
+    '<div class="container-fluid">' +
+        '<div class="row row-fluid">' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="col-md-8 span8"><p>'+M.util.get_string('column2')+'</p></div>' +
+        '</div>' +
+    '</div>';
+
+var col3x1_template =
+    '<div class="container-fluid">' +
+        '<div class="row row-fluid">' +
+            '<div class="col-md-8 span8"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1')+'</p></div>' +
+        '</div>' +
+    '</div>';
+
+
+var col4_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span3"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="span3"><p>'+M.util.get_string('column2')+'</p></div>' +
+            '<div class="span3"><p>'+M.util.get_string('column3')+'</p></div>' +
+            '<div class="span3"><p>'+M.util.get_string('column4')+'</p></div>' +
+        '</div>' +
+    '</div>';
+
+var col6_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span2"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="span2"><p>'+M.util.get_string('column2')+'</p></div>' +
+            '<div class="span2"><p>'+M.util.get_string('column3')+'</p></div>' +
+            '<div class="span2"><p>'+M.util.get_string('column4')+'</p></div>' +
+            '<div class="span2"><p>'+M.util.get_string('column5')+'</p></div>' +
+            '<div class="span2"><p>'+M.util.get_string('column6')+'</p></div>' +
+        '</div>' +
+    '</div>';
+
+var templates = { col2: { template: col2_template, icon: "col2", title: M.util.get_string('col2') },
+          col3: { template: col3_template, icon: "col3", title: M.util.get_string('col3') },
+        col1x3: { template: col1x3_template, icon: "col1x3", title: M.util.get_string('col1x3') },
+        col3x1: { template: col3x1_template, icon: "col3x1", title: M.util.get_string('col3x1') },
+          col4: { template: col4_template, icon: "col4", title: M.util.get_string('col4') },
+          col6: { template: col6_template, icon: "col6", title: M.util.get_string('col6') }
+        };
 function contains(a, obj) {
     for (var i = 0; i < a.length; i++) {
         if (a[i] === obj) {
@@ -82,17 +129,19 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
 
     var twoicons = ['iconone'];
 
-    TEMPLATE = '' +
+    TEMPLATE +=
       '<form class="atto_form">' +
       '<div id="{{elementid}}_{{innerform}}" class="mdl-align">';
-for(var t in templates) {
-  if(contains(this.get('enabled_templates'),t)) {
-    TEMPLATE += '<a class="bsgridtemplateicon {{CSS.INPUTSUBMIT}}" alt="' + templates[t].title +  '" title="' + templates[t].title + '" data-template="'+ t + '"><img src="'
-      + M.util.image_url("ed/" + templates[t].icon,"atto_bsgrid") + '"/></a>';
-  }
-};
+    for(var t in templates) {
+      if(contains(this.get('enabled_templates'),t)) {
+        TEMPLATE += '<a class="bsgridtemplateicon {{CSS.INPUTSUBMIT}}" alt="' + templates[t].title +  '" title="' +
+                    templates[t].title + '" data-template="'+ t + '">' +
+                        '<img src="'+ M.util.image_url("ed/" + templates[t].icon,"atto_bsgrid") + '"/>' +
+                    '</a>';
+      }
+    }
 
-TEMPLATE += '</div>' + '</form>';
+    TEMPLATE += '</div>' + '</form>';
 
     Y.Array.each(twoicons, function(theicon) {
       // Add the bsgrid icon/buttons
@@ -174,7 +223,6 @@ TEMPLATE += '</div>' + '</form>';
     this.getDialogue({
       focusAfterHide: null
     }).hide();
-    console.log(this.get('enabled_templates'));
     this.editor.focus();
     var templateName = e.currentTarget.getAttribute('data-template');
     this.get('host').insertContentAtFocusPoint(templates[templateName].template);
