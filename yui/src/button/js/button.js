@@ -37,25 +37,38 @@ var LOGNAME = 'atto_bsgrid';
 var CSS = {
   INPUTSUBMIT: 'atto_bsgrid_selectcolumns'
 };
-// TODO - add bs three classes
-// TODO - add spans to col text
-// TODO - add 3rd
-// TODO - add 3rd reverse
-var col2_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-6 span6"><p>Column 1</p></div><div class="col-md-6 span6"><p>Column 2</p></div></div></div>';
-var col3_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-4 span4"><p>Column 1</p></div><div class="col-md-4 span4"><p>Column 2</p></div><div class="col-md-4 span4"><p>Column 3</p></div></div></div>';
-var col1x3_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-4 span4"><p>Column 1</p></div><div class="col-md-8 span8"><p>Column 2</p></div></div></div>';
-var col3x1_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-8 span8"><p>Column 1</p></div><div class="col-md-4 span4"><p>Column 2</p></div></div></div>';
-var col4_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-3 span3"><p>Column 1</p></div><div class="col-md-3 span3"><p>Column 2</p></div><div class="col-md-3 span3"><p>Column 3</p></div><div class="col-md-3 span3"><p>Column 4</p></div></div></div>';
-var col6_template = '<div class="container-fluid"><div class="row row-fluid"><div class="col-md-2 span2"><p>Column 1</p></div><div class="col-md-2 span2"><p>Column 2</p></div><div class="col-md-2 span2"><p>Column 3</p></div><div class="col-md-2 span2"><p>Column 4</p></div><div class="col-md-2 span2"><p>Column 5</p></div><div class="col-md-2 span2"><p>Column 6</p></div></div></div>';
 
-var templates = { col2: { template: col2_template, icon: "col2", title: "50% Columns" },
-    col3: { template: col3_template, icon: "col3", title: "33% Columns" },
-    col1x3: { template: col1x3_template, icon: "col1x3", title: "25%, 75% Columns" },
-    col3x1: { template: col3x1_template, icon: "col3x1", title: "75%, 25% Columns" },
-    col4: { template: col4_template, icon: "col4", title: "25% Columns" },
-    col6: { template: col6_template, icon: "col6", title: "16% Columns" }
-};
+var col2_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span6">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span6">'+M.util.get_string('column2')+'</div>' +
+        '</div>' +
+    '</div>';
+var col3_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span4">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span4">'+M.util.get_string('column2')+'</div>' +
+            '<div class="span4">'+M.util.get_string('column3')+'</div>' +
+        '</div>' +
+    '</div>';
+var col4_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span3">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column2')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column3')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column4')+'</div>' +
+        '</div>' +
+    '</div>';
+var col6_template = '<div class="container-fluid"><div class="row-fluid"><div class="span2">Column 1</div><div class="span2">Column 2</div><div class="span2">Column 3</div><div class="span2">Column 4</div><div class="span2">Column 5</div><div class="span2">Column 6</div></div></div>';
 
+var templates = { col2: { template: col2_template, icon: "col2", title: M.util.get_string('col2') },
+		  col3: { template: col3_template, icon: "col3", title: M.util.get_string('col3') },
+		  col4: { template: col4_template, icon: "col4", title: M.util.get_string('col4') },
+		  col6: { template: col6_template, icon: "col6", title: M.util.get_string('col6') }
+		};
 function contains(a, obj) {
     for (var i = 0; i < a.length; i++) {
         if (a[i] === obj) {
