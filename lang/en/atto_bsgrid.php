@@ -22,6 +22,16 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['column1'] = 'Column 1';
+$string['column2'] = 'Column 2';
+$string['column3'] = 'Column 3';
+$string['column4'] = 'Column 4';
+$string['column5'] = 'Column 5';
+$string['column6'] = 'Column 6';
+$string['col2'] = '2 Columns';
+$string['col3'] = '3 Columns';
+$string['col4'] = '4 Columns';
+$string['col6'] = '6 Columns';
 $string['createbsgrid'] = 'Create bsgrid';
 $string['pluginname'] = 'Bootstrap Grid';
 $string['settings'] = 'bsgrid (Atto)';
@@ -34,3 +44,4 @@ $string['cancel'] = 'Cancel';
 $string['enabled_templates'] = 'Enabled templates:';
 $string['enabled_templates_desc'] = 'Which templates to show.';
 $string['bsgrid:visible'] = 'Visible';
+

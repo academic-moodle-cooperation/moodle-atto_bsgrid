@@ -32,10 +32,24 @@ defined('MOODLE_INTERNAL') || die();
 function atto_bsgrid_strings_for_js() {
     global $PAGE;
 
-    $PAGE->requires->strings_for_js(array('insert',
-                                          'cancel',
-                                          'dialogtitle'),
-                                    'atto_bsgrid');
+    $PAGE->requires->strings_for_js(
+        [
+            'insert',
+            'cancel',
+            'column1',
+            'column2',
+            'column3',
+            'column4',
+            'column5',
+            'column6',
+            'col2',
+            'col3',
+            'col4',
+            'col6',
+            'dialogtitle'
+        ],
+        'atto_bsgrid'
+    );
 }
 
 /**

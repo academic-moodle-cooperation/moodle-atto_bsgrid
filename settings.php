@@ -41,9 +41,9 @@ if ($ADMIN->fulltree) {
             'col6' => 'checked'
         ),
         array(
-            'col2' => "2 Columns",
-            'col3' => "3 Columns",
-            'col4' => "4 Columns",
-            'col6' => "6 Columns"
+            'col2' => get_string('col2', 'atto_bsgrid'),
+            'col3' => get_string('col3', 'atto_bsgrid'),
+            'col4' => get_string('col4', 'atto_bsgrid'),
+            'col6' => get_string('col6', 'atto_bsgrid')
         )));
 }

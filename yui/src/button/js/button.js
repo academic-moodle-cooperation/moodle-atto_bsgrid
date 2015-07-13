@@ -38,15 +38,36 @@ var CSS = {
   INPUTSUBMIT: 'atto_bsgrid_selectcolumns'
 };
 
-var col2_template = '<div class="container-fluid"><div class="row-fluid"><div class="span6">Column 1</div><div class="span6">Column 2</div></div></div>';
-var col3_template = '<div class="container-fluid"><div class="row-fluid"><div class="span4">Column 1</div><div class="span4">Column 2</div><div class="span4">Column 3</div></div></div>';
-var col4_template = '<div class="container-fluid"><div class="row-fluid"><div class="span3">Column 1</div><div class="span3">Column 2</div><div class="span3">Column 3</div><div class="span3">Column 4</div></div></div>';
+var col2_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span6">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span6">'+M.util.get_string('column2')+'</div>' +
+        '</div>' +
+    '</div>';
+var col3_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span4">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span4">'+M.util.get_string('column2')+'</div>' +
+            '<div class="span4">'+M.util.get_string('column3')+'</div>' +
+        '</div>' +
+    '</div>';
+var col4_template =
+    '<div class="container-fluid">' +
+        '<div class="row-fluid">' +
+            '<div class="span3">'+M.util.get_string('column1')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column2')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column3')+'</div>' +
+            '<div class="span3">'+M.util.get_string('column4')+'</div>' +
+        '</div>' +
+    '</div>';
 var col6_template = '<div class="container-fluid"><div class="row-fluid"><div class="span2">Column 1</div><div class="span2">Column 2</div><div class="span2">Column 3</div><div class="span2">Column 4</div><div class="span2">Column 5</div><div class="span2">Column 6</div></div></div>';
 
-var templates = { col2: { template: col2_template, icon: "col2", title: "2 Columns" },
-		  col3: { template: col3_template, icon: "col3", title: "3 Columns" },
-		  col4: { template: col4_template, icon: "col4", title: "4 Columns" },
-		  col6: { template: col6_template, icon: "col6", title: "6 Columns" }
+var templates = { col2: { template: col2_template, icon: "col2", title: M.util.get_string('col2') },
+		  col3: { template: col3_template, icon: "col3", title: M.util.get_string('col3') },
+		  col4: { template: col4_template, icon: "col4", title: M.util.get_string('col4') },
+		  col6: { template: col6_template, icon: "col6", title: M.util.get_string('col6') }
 		};
 function contains(a, obj) {
     for (var i = 0; i < a.length; i++) {
