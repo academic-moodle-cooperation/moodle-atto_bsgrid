@@ -31,19 +31,23 @@ $settings = new admin_settingpage('atto_bsgrid_settings', new lang_string('setti
 if ($ADMIN->fulltree) {
 	// An option setting
 	$settings->add(new admin_setting_configmulticheckbox(
-        'atto_bsgrid/enabled_templates', 
+        'atto_bsgrid/enabled_templates',
         get_string('enabled_templates', 'atto_bsgrid'),
         get_string('enabled_templates_desc', 'atto_bsgrid'),
         array(
-            'col2' => 'checked',
-            'col3' => 'checked',
-            'col4' => 'checked',
-            'col6' => 'checked'
+            'col2'   => 'checked',
+            'col3'   => 'checked',
+            'col1x3' => 'checked',
+            'col3x1' => 'checked',
+            'col4'   => 'checked',
+            'col6'   => 'checked'
         ),
         array(
-            'col2' => "2 Columns",
-            'col3' => "3 Columns",
-            'col4' => "4 Columns",
-            'col6' => "6 Columns"
+            'col2' => get_string('col2', 'atto_bsgrid'),
+            'col3' => get_string('col3', 'atto_bsgrid'),
+            'col1x3' => get_string('col1x3', 'atto_bsgrid'),
+            'col3x1' => get_string('col3x1', 'atto_bsgrid'),
+            'col4' => get_string('col4', 'atto_bsgrid'),
+            'col6' => get_string('col6', 'atto_bsgrid')
         )));
 }
