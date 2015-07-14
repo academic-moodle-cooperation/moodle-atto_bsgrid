@@ -17,7 +17,9 @@ YUI.add('moodle-atto_bsgrid-button', function (Y, NAME) {
 
 /*
  * @package    atto_bsgrid
- * @copyright  COPYRIGHTINFO
+ * @copyright  2015 Peter Feigl <peter.feigl@nexoid.at>,
+ *             Guy Thomas <gthomas@moodlerooms.com>,
+ *             Stuart Lamour <slamour@moodlerooms.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,66 +46,66 @@ var CSS = {
 // of a column will delete the actuall column!
 
 var col2_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row-fluid">' +
-            '<div class="span6"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="span6"><p>'+M.util.get_string('column2')+'</p></div>' +
+            '<div class="col-md-6 span6"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-6 span6"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 var col3_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row-fluid">' +
-            '<div class="span4"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="span4"><p>'+M.util.get_string('column2')+'</p></div>' +
-            '<div class="span4"><p>'+M.util.get_string('column3')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 
 var col1x3_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row row-fluid">' +
-            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="col-md-8 span8"><p>'+M.util.get_string('column2')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-8 span8"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 
 var col3x1_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row row-fluid">' +
-            '<div class="col-md-8 span8"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1')+'</p></div>' +
+            '<div class="col-md-8 span8"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 
 
 var col4_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row-fluid">' +
-            '<div class="span3"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="span3"><p>'+M.util.get_string('column2')+'</p></div>' +
-            '<div class="span3"><p>'+M.util.get_string('column3')+'</p></div>' +
-            '<div class="span3"><p>'+M.util.get_string('column4')+'</p></div>' +
+            '<div class="col-md-3 span3"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-3 span3"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-3 span3"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-3 span3"><p>'+M.util.get_string('column4', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 
 var col6_template =
-    '<div class="container-fluid">' +
+    '<div class="atto_bsgrid container-fluid">' +
         '<div class="row-fluid">' +
-            '<div class="span2"><p>'+M.util.get_string('column1')+'</p></div>' +
-            '<div class="span2"><p>'+M.util.get_string('column2')+'</p></div>' +
-            '<div class="span2"><p>'+M.util.get_string('column3')+'</p></div>' +
-            '<div class="span2"><p>'+M.util.get_string('column4')+'</p></div>' +
-            '<div class="span2"><p>'+M.util.get_string('column5')+'</p></div>' +
-            '<div class="span2"><p>'+M.util.get_string('column6')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column4', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column5', 'atto_bsgrid')+'</p></div>' +
+            '<div class="col-md-2 span2"><p>'+M.util.get_string('column6', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 
-var templates = { col2: { template: col2_template, icon: "col2", title: M.util.get_string('col2') },
-          col3: { template: col3_template, icon: "col3", title: M.util.get_string('col3') },
-        col1x3: { template: col1x3_template, icon: "col1x3", title: M.util.get_string('col1x3') },
-        col3x1: { template: col3x1_template, icon: "col3x1", title: M.util.get_string('col3x1') },
-          col4: { template: col4_template, icon: "col4", title: M.util.get_string('col4') },
-          col6: { template: col6_template, icon: "col6", title: M.util.get_string('col6') }
+var templates = { col2: { template: col2_template, icon: "col2", title: M.util.get_string('col2', 'atto_bsgrid') },
+          col3: { template: col3_template, icon: "col3", title: M.util.get_string('col3', 'atto_bsgrid') },
+        col1x3: { template: col1x3_template, icon: "col1x3", title: M.util.get_string('col1x3', 'atto_bsgrid') },
+        col3x1: { template: col3x1_template, icon: "col3x1", title: M.util.get_string('col3x1', 'atto_bsgrid') },
+          col4: { template: col4_template, icon: "col4", title: M.util.get_string('col4', 'atto_bsgrid') },
+          col6: { template: col6_template, icon: "col6", title: M.util.get_string('col6', 'atto_bsgrid') }
         };
 function contains(a, obj) {
     for (var i = 0; i < a.length; i++) {

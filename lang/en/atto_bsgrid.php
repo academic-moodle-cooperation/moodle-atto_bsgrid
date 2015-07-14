@@ -18,7 +18,8 @@
  * Strings for component 'atto_bsgrid', language 'en'.
  *
  * @package    atto_bsgrid
- * @copyright  (c) Peter Feigl, Guy Thomas, Miriam Kunst
+ * @copyright  2015 Peter Feigl <peter.feigl@nexoid.at>,
+ *             Guy Thomas <gthomas@moodlerooms.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -40,7 +41,7 @@ $string['settings'] = 'bsgrid (Atto)';
 $string['browse'] = 'Browse';
 $string['visible'] = 'Visible';
 $string['nothingtoinsert'] = 'Nothing to insert!';
-$string['dialogtitle'] = 'Select template';
+$string['dialogtitle'] = 'Select grid';
 $string['insert'] = 'Insert';
 $string['cancel'] = 'Cancel';
 $string['enabled_templates'] = 'Enabled templates:';
