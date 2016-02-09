@@ -61,7 +61,7 @@ var col3_template =
 
 var col1x3_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row row-fluid">' +
+        '<div class="row-fluid">' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-8 span8"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
@@ -69,7 +69,7 @@ var col1x3_template =
 
 var col3x1_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row row-fluid">' +
+        '<div class="row-fluid">' +
             '<div class="col-md-8 span8"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
