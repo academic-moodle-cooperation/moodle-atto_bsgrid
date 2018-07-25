@@ -48,3 +48,7 @@ $string['enabled_templates'] = 'Enabled templates:';
 $string['enabled_templates_desc'] = 'Which templates to show.';
 $string['bsgrid:visible'] = 'Visible';
 
+/*
+ * GDPR compliant
+ */
+$string['privacy:no_data_reason'] = "The atto bsgrid plugin doesn't store any personal data.";
