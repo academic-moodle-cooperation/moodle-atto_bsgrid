@@ -45,14 +45,14 @@ var CSS = {
 
 var col2_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-6 span6"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-6 span6"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
     '</div>';
 var col3_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
@@ -61,7 +61,7 @@ var col3_template =
 
 var col1x3_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-8 span8"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
@@ -69,7 +69,7 @@ var col1x3_template =
 
 var col3x1_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-8 span8"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-4 span4"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
         '</div>' +
@@ -78,7 +78,7 @@ var col3x1_template =
 
 var col4_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-3 span3"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-3 span3"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-3 span3"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
@@ -88,7 +88,7 @@ var col4_template =
 
 var col6_template =
     '<div class="atto_bsgrid container-fluid">' +
-        '<div class="row-fluid">' +
+        '<div class="row">' +
             '<div class="col-md-2 span2"><p>'+M.util.get_string('column1', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-2 span2"><p>'+M.util.get_string('column2', 'atto_bsgrid')+'</p></div>' +
             '<div class="col-md-2 span2"><p>'+M.util.get_string('column3', 'atto_bsgrid')+'</p></div>' +
