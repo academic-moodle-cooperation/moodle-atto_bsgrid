@@ -131,7 +131,7 @@ Y.namespace('M.atto_bsgrid').Button = Y.Base.create('button', Y.M.editor_atto.Ed
 
     var twoicons = ['iconone'];
 
-    TEMPLATE +=
+    TEMPLATE =
       '<form class="atto_form">' +
       '<div id="{{elementid}}_{{innerform}}" class="mdl-align">';
     for(var t in templates) {
