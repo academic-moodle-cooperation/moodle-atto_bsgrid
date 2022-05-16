@@ -40,7 +40,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='50% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should not exist
     And ".editor_atto_content .span3" "css_element" should not exist
     And ".editor_atto_content .span4" "css_element" should not exist
@@ -58,7 +58,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='33% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should not exist
     And ".editor_atto_content .span3" "css_element" should not exist
     And ".editor_atto_content .span4" "css_element" should be visible
@@ -76,7 +76,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='25%, 75% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should not exist
     And ".editor_atto_content .span3" "css_element" should not exist
     And ".editor_atto_content .span4" "css_element" should be visible
@@ -94,7 +94,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='75%, 25% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should not exist
     And ".editor_atto_content .span3" "css_element" should not exist
     And ".editor_atto_content .span4" "css_element" should be visible
@@ -112,7 +112,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='25% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should not exist
     And ".editor_atto_content .span3" "css_element" should be visible
     And ".editor_atto_content .span4" "css_element" should not exist
@@ -130,7 +130,7 @@ Feature: Atto bsgrid
     And I click on ".editor_atto_content" "css_element"
     And I click on "Bootstrap Grid" "button"
     When I click on "a[title='16% Columns']" "css_element"
-    Then ".editor_atto_content .container-fluid .row-fluid" "css_element" should be visible
+    Then ".editor_atto_content .container-fluid .row" "css_element" should be visible
     And ".editor_atto_content .span2" "css_element" should be visible
     And ".editor_atto_content .span3" "css_element" should not exist
     And ".editor_atto_content .span4" "css_element" should not exist
